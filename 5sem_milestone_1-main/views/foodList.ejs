@@ -1,0 +1,31 @@
+<!-- foodList.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food List</title>
+</head>
+<body>
+    <h1>Available Food Items</h1>
+
+    <!-- Add this section at the top -->
+    <h3>Filter: <%= categoryFilter ? categoryFilter : 'All' %></h3>
+
+    <!-- Add link to add new food items -->
+    <a href="/add-food">Add New Food</a>
+
+    <ul>
+        <% foods.forEach(food => { %>
+            <li>
+                <h2><%= food.name %></h2>
+                <p>Description: <%= food.description %></p>
+                <p>Price: <%= food.price %></p>
+                <p>Category: <%= food.category %></p>
+                <img src="<%= food.image %>" alt="<%= food.name %> Image">
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
